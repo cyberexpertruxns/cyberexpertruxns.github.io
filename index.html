@@ -178,31 +178,25 @@
       margin-bottom: 5px; 
     }  
   
-    /* আপডেট করা এনিমেটেড প্রোফাইল পিকচার */
+    /* আপডেট করা Rotating Glow Border */
     .round-profile {  
       width: 110px;  
       height: 110px;  
       border-radius: 50%;  
       object-fit: cover;  
-      border: 3px solid transparent; 
-      background-image: linear-gradient(var(--bg1), var(--bg1)), 
-                        linear-gradient(90deg, var(--neon), var(--neon2), var(--purple), var(--neon));
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
+      padding: 3px; /* বর্ডারের জন্য স্পেস */
+      background: linear-gradient(0deg, var(--neon), var(--purple), var(--neon2), var(--pink));
+      background-size: 300% 300%;
       box-shadow: 0 0 15px rgba(0, 255, 195, 0.4);  
       backdrop-filter: blur(8px);
-      animation: rotateBorder 3s linear infinite; 
+      animation: rotateBorderColors 3s linear infinite; /* এনিমেশন যুক্ত করা হয়েছে */
     }
-  
-    @keyframes rotateBorder {
-      0% {
-        background-image: linear-gradient(var(--bg1), var(--bg1)), 
-                          linear-gradient(0deg, var(--neon), var(--neon2), var(--purple), var(--neon));
-      }
-      100% {
-        background-image: linear-gradient(var(--bg1), var(--bg1)), 
-                          linear-gradient(360deg, var(--neon), var(--neon2), var(--purple), var(--neon));
-      }
+
+    /* বর্ডারের কালার ঘুরানোর এনিমেশন */
+    @keyframes rotateBorderColors {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   
     .hero-box {  
