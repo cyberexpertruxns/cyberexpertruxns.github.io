@@ -178,25 +178,42 @@
       margin-bottom: 5px; 
     }  
   
-    /* আপডেট করা Rotating Glow Border */
+    /* আপডেট করা Animated RGB Border */
     .round-profile {  
       width: 110px;  
       height: 110px;  
       border-radius: 50%;  
       object-fit: cover;  
       padding: 3px; /* বর্ডারের জন্য স্পেস */
-      background: linear-gradient(0deg, var(--neon), var(--purple), var(--neon2), var(--pink));
-      background-size: 300% 300%;
-      box-shadow: 0 0 15px rgba(0, 255, 195, 0.4);  
+      background: linear-gradient(0deg,  
+          #ffffff 0%,  
+          #00ffc3 14%,  
+          #00d9ff 28%,  
+          #9d5cff 42%,  
+          #ff4fd8 58%,  
+          #ffe066 74%,  
+          #53ff83 88%,  
+          #ffffff 100%
+      );
+      background-size: 300% 300%; /* এনিমেশনের জন্য বড় করা হয়েছে */
+      box-shadow: 0 0 20px rgba(0, 255, 195, 0.5);  
       backdrop-filter: blur(8px);
-      animation: rotateBorderColors 3s linear infinite; /* এনিমেশন যুক্ত করা হয়েছে */
+      animation: rgbBorderSlow 6s linear infinite; /* স্লো মোশন এনিমেশন */
     }
 
-    /* বর্ডারের কালার ঘুরানোর এনিমেশন */
-    @keyframes rotateBorderColors {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* RGB বর্ডারের কালার ও ঘোরা এনিমেশন */
+    @keyframes rgbBorderSlow {
+      0% {
+        background-position: 0% 50%;
+        transform: rotate(0deg); /* ঘোরানোর জন্য */
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+        transform: rotate(360deg); /* সম্পূর্ণ এক চক্কর */
+      }
     }
   
     .hero-box {  
