@@ -666,33 +666,53 @@ textarea{
     </div>
 
         <section class="panel">
-      <h2 class="panel-title">
-        <i class="fa-solid fa-address-card"></i>
-        My Information
-      </h2>
+  <h2 class="panel-title">
+    <i class="fa-solid fa-address-card"></i>
+    My Information
+  </h2>
 
-      <div class="social-grid">
-        <a class="social-btn" href="https://www.facebook.com/share/1Gy2AHukpZ/" target="_blank">
-          <i class="fa-brands fa-facebook-f"></i>
-          <span>Facebook</span>
-        </a>
+  <div class="social-grid">
+    <a class="social-btn" href="https://www.facebook.com/share/1Gy2AHukpZ/" target="_blank">
+      <i class="fa-brands fa-facebook-f"></i>
+      <span>Facebook</span>
+    </a>
+    <a class="social-btn" href="https://www.instagram.com/bruno_bbz9?igsh=MW5lM2N6ZGsxdm5vMQ==" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+      <span>Instagram</span>
+    </a>
+    <a class="social-btn" href="https://www.tiktok.com/@ruxns?_r=1&_t=ZS-97RaGDsqjc8" target="_blank">
+      <i class="fa-brands fa-tiktok"></i>
+      <span>TikTok</span>
+    </a>
+    <button class="social-btn" onclick="document.getElementById('myInfoModal').style.display='flex'">
+      <i class="fa-solid fa-user-shield"></i>
+      <span>My Info</span>
+    </button>
+  </div>
+</section>
 
-        <a class="social-btn" href="https://www.instagram.com/bruno_bbz9?igsh=MW5lM2N6ZGsxdm5vMQ==" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
+<div id="myInfoModal" class="modal-overlay">
+  <div class="modal-card">
+    <span class="close-btn" onclick="document.getElementById('myInfoModal').style.display='none'">&times;</span>
+    <h2 class="modal-title">Personal Details</h2>
+    <div class="info-content">
+      <p><strong>Name:</strong> Rahim Hasan</p>
+      <p><strong>Address:</strong> Sylhet Sadar</p>
+      <p><strong>Education:</strong> Inter First Year</p>
+      <p><strong>Age:</strong> 16+</p>
+      <p><strong>Blood Group:</strong> O Positive (O+)</p>
+    </div>
+  </div>
+</div>
 
-        <a class="social-btn" href="https://www.tiktok.com/@ruxns?_r=1&_t=ZS-97RaGDsqjc8" target="_blank">
-          <i class="fa-brands fa-tiktok"></i>
-          <span>TikTok</span>
-        </a>
-
-        <button class="social-btn" onclick="alert('Name: Rahim Hasan\nAddress: Sylhet Sadar\nEducation: Inter First Year\nAge: 16+\nBlood Group: O Positive')">
-          <i class="fa-solid fa-circle-info"></i>
-          <span>My Info</span>
-        </button>
-      </div>
-    </section>
+<style>
+.modal-overlay { display:none; position:fixed; inset:0; z-index:999; background:rgba(4,16,26,0.85); backdrop-filter:blur(8px); align-items:center; justify-content:center; }
+.modal-card { background:var(--bg2); padding:30px; border-radius:24px; border:1px solid var(--neon); width:90%; max-width:350px; position:relative; box-shadow:0 0 40px rgba(0,255,195,0.1); }
+.modal-title { font-family:"Orbitron", sans-serif; color:var(--neon); margin-bottom:20px; text-align:center; }
+.info-content p { font-family:"Inter", sans-serif; color:var(--text); margin-bottom:12px; font-size:16px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px; }
+.close-btn { position:absolute; top:15px; right:20px; font-size:28px; color:var(--text); cursor:pointer; }
+.close-btn:hover { color:var(--neon); }
+</style>
 
 
 
