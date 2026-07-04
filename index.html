@@ -34,8 +34,17 @@
 html{ scroll-behavior:smooth; }
 
 body{
+  min-height:100vh;
+  font-family:"Inter", sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
   background:
-  linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+    radial-gradient(circle at 10% 10%, rgba(0,255,195,0.16), transparent 26%),
+    radial-gradient(circle at 90% 15%, rgba(0,217,255,0.18), transparent 28%),
+    radial-gradient(circle at 80% 85%, rgba(157,92,255,0.16), transparent 26%),
+    radial-gradient(circle at 25% 75%, rgba(255,79,216,0.12), transparent 24%),
+    linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+  position:relative;
 }
 
 .grid-bg{
@@ -76,7 +85,7 @@ body{
   filter:blur(46px);
   pointer-events:none;
   z-index:0;
-  opacity:0;
+  opacity:0.22;
   animation:floatOrb 7s ease-in-out infinite alternate;
 }
 
@@ -119,7 +128,7 @@ body{
   width:100%;
   height:100%;
   z-index:0;
-  opacity:0.05;
+  opacity:0.18;
   pointer-events:none;
 }
 
@@ -678,7 +687,7 @@ textarea{
           <span>TikTok</span>
         </a>
 
-        <a class="social-btn" href="https://wa.me/8801347344027" target="_blank">
+        <a class="social-btn" href="https://wa.me/" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
           <span>WhatsApp</span>
         </a>
