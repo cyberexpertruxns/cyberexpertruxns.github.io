@@ -691,39 +691,63 @@ textarea{
 </div>
 
 <style>
-  /* বাটন স্টাইল: পরিষ্কার লুক এবং কোনো অতিরিক্ত হলুদ আভা নেই */
-  .social-btn {
+/* মডাল কার্ডের স্টাইল */
+.modal-card { 
+    background: #0a1727; 
+    padding: 25px; 
+    border-radius: 20px; 
+    width: 90%; 
+    max-width: 350px; 
+    border: 1px solid #00ffc3;
     position: relative;
-    text-decoration: none;
-    color: #ecfffa;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(10, 16, 30, 0.78);
-    border-radius: 18px;
-    padding: 17px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    transition: 0.2s;
-  }
-  
-  .social-btn:hover {
-    background: rgba(0, 255, 195, 0.05);
-    border-color: rgba(0, 255, 195, 0.3);
-  }
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
 
-  /* লেবেল কালার ঠিক করা (স্ক্রিনশট অনুযায়ী) */
-  .info-content p { 
-    color: #b8ddd3; /* লেবেলগুলো হালকা কালার */
+.modal-title { 
+    text-align: center; 
+    color: #00ffc3; 
+    font-size: 1.3rem; 
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* এখানে মূল সমাধান: প্রতিটি সারি আলাদা করার জন্য ব্লক লেআউট */
+.info-content { 
+    display: block; 
+}
+
+.info-row { 
     display: flex; 
     justify-content: space-between; 
-    padding: 10px 0;
-  }
-  
-  .info-content p span { 
-    color: #ecfffa; /* ভ্যালুগুলো সাদা */
-  }
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 195, 0.1); 
+    padding: 14px 0; /* সারির মাঝে পর্যাপ্ত ফাঁকা জায়গা */
+}
+
+.label { 
+    font-weight: 600; 
+    color: #b8ddd3; 
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.value { 
+    color: #ecfffa; 
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.close-btn { 
+    position: absolute; 
+    top: 5px; 
+    right: 15px; 
+    font-size: 28px; 
+    color: #ecfffa; 
+    cursor: pointer; 
+}
 </style>
+
 
 
     <section class="panel">
