@@ -744,6 +744,7 @@ textarea{
 
 /* সব লেখার জন্য Orbitron ফন্ট সেট করা হয়েছে */
 <section class="panel">
+<section class="panel">
   <h2 class="panel-title">
     <i class="fa-solid fa-address-card"></i>
     My Information
@@ -784,36 +785,38 @@ textarea{
 </div>
 
 <style>
+/* Modal Setup */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(4,16,26,0.95); backdrop-filter:blur(10px); align-items:center; justify-content:center; }
-.modal-card { background:#0a1727; padding:25px; border-radius:20px; border:1px solid #00ffc3; width:90%; max-width:350px; position:relative; }
+.modal-card { background:#0a1727; padding:25px; border-radius:15px; border:1px solid #333; width:90%; max-width:350px; position:relative; }
 
-.close-btn { position:absolute; top:5px; right:15px; font-size:32px; color:#00ffc3; cursor:pointer; z-index:10; }
-.close-btn:hover { color:#fff; }
+/* Close Button */
+.close-btn { position:absolute; top:5px; right:15px; font-size:30px; color:#fff; cursor:pointer; z-index:10; }
+.close-btn:hover { color:#00ffc3; }
 
-/* আপনার আগের Orbitron ফন্ট এবং স্টাইল */
+/* Normal Readable Font */
 .modal-title, .info-content p, .info-content strong, .info-content span {
-    font-family: 'Orbitron', sans-serif;
-    color: #00ffc3;
+    font-family: Arial, sans-serif; /* একদম সাধারণ ফন্ট */
+    color: #fff; /* সব লেখা সাদা */
 }
 
 .modal-title { 
     margin-bottom: 25px; 
     text-align: center; 
-    font-size: 1.1rem; 
+    font-size: 1.2rem; 
     text-transform: uppercase; 
-    white-space: nowrap; 
 }
 
-.info-content { display: flex; flex-direction: column; gap: 15px; }
+.info-content { display: flex; flex-direction: column; gap: 12px; }
 .info-content p { 
     margin: 0; 
-    font-size: 0.9rem; 
+    font-size: 15px; 
     display: flex; 
     justify-content: space-between; 
-    border-bottom: 1px solid rgba(0, 255, 195, 0.2); 
+    border-bottom: 1px solid #222; 
     padding-bottom: 8px; 
 }
 </style>
+
 
 
     <section class="panel">
