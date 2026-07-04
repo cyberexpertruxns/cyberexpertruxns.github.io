@@ -666,33 +666,82 @@ textarea{
     </div>
 
     <section class="panel">
-      <h2 class="panel-title">
-        <i class="fa-solid fa-address-card"></i>
-        My Information
-      </h2>
+  <h2 class="panel-title">
+    <i class="fa-solid fa-address-card"></i>
+    My Information
+  </h2>
 
-      <div class="social-grid">
-        <a class="social-btn" href="https://www.facebook.com/share/1Gy2AHukpZ/" target="_blank">
-          <i class="fa-brands fa-facebook-f"></i>
-          <span>Facebook</span>
-        </a>
+  <div class="social-grid">
+    <a class="social-btn" href="https://www.facebook.com/share/1Gy2AHukpZ/" target="_blank">
+      <i class="fa-brands fa-facebook-f"></i>
+      <span>Facebook</span>
+    </a>
+    <a class="social-btn" href="https://www.instagram.com/bruno_bbz9?igsh=MW5lM2N6ZGsxdm5vMQ==" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+      <span>Instagram</span>
+    </a>
+    <a class="social-btn" href="https://www.tiktok.com/@ruxns?_r=1&_t=ZS-97RaGDsqjc8" target="_blank">
+      <i class="fa-brands fa-tiktok"></i>
+      <span>TikTok</span>
+    </a>
+    <button class="social-btn" onclick="document.getElementById('myInfoModal').style.display='flex'">
+      <i class="fa-solid fa-user-shield"></i>
+      <span>My Info</span>
+    </button>
+  </div>
+</section>
 
-        <a class="social-btn" href="https://www.instagram.com/bruno_bbz9?igsh=MW5lM2N6ZGsxdm5vMQ==" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
+<div id="myInfoModal" class="modal-overlay">
+  <div class="modal-card">
+    <span class="close-btn" onclick="document.getElementById('myInfoModal').style.display='none'">&times;</span>
+    <h2 class="modal-title">Personal Details</h2>
+    <div class="info-content">
+      <p><strong>Name:</strong> <span>Rahim Hasan</span></p>
+      <p><strong>Address:</strong> <span>Sylhet Sadar</span></p>
+      <p><strong>Education:</strong> <span>Inter First Year</span></p>
+      <p><strong>Age:</strong> <span>16+ years</span></p>
+      <p><strong>Blood Group:</strong> <span>O Positive (O+)</span></p>
+    </div>
+  </div>
+</div>
 
-        <a class="social-btn" href="https://www.tiktok.com/@ruxns?_r=1&_t=ZS-97RaGDsqjc8" target="_blank">
-          <i class="fa-brands fa-tiktok"></i>
-          <span>TikTok</span>
-        </a>
+<style>
+/* Modal Overlay */
+.modal-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(4,16,26,0.95); backdrop-filter:blur(10px); align-items:center; justify-content:center; }
+.modal-card { background:#0a1727; padding:30px; border-radius:20px; border:1px solid #00ffc3; width:90%; max-width:350px; position:relative; }
 
-        <a class="social-btn" href="https://wa.me/8801347344027" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp</span>
-        </a>
-      </div>
-    </section>
+/* Fixed Close Button */
+.close-btn { position:absolute; top:10px; right:15px; font-size:30px; color:#ffffff; cursor:pointer; z-index:10; }
+.close-btn:hover { color:#00ffc3; }
+
+/* Normal Font for Everything */
+.modal-title, .info-content p { font-family: sans-serif; }
+
+/* Modal Title */
+.modal-title { 
+    color: #00ffc3; 
+    margin-bottom: 25px; 
+    text-align: center; 
+    font-size: 1.2rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* Info Content - Simple and Readable */
+.info-content { display: flex; flex-direction: column; gap: 15px; }
+.info-content p { 
+    color: #ffffff; 
+    margin: 0; 
+    font-size: 1rem; 
+    display: flex; 
+    justify-content: space-between; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 10px; 
+}
+.info-content p strong { font-weight: bold; color: #ffffff; }
+.info-content p span { font-weight: normal; color: #ffffff; }
+</style>
+
 
     <section class="panel">
       <h2 class="panel-title problem-heading">
