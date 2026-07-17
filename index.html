@@ -343,60 +343,46 @@ body{
 }    
 
 .social-grid{
-    display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    display:flex;
+    gap:15px;
+    justify-content:space-between;
 }
 
 .social-btn{
+    flex:1;
     display:flex;
     align-items:center;
     justify-content:center;
     gap:12px;
-    width:100%;
     padding:18px;
     border-radius:20px;
-    background:#1b2333;
+    background:linear-gradient(180deg,#121b2b 0%,#0d1523 100%);
+    border:1px solid rgba(255,255,255,.06);
     color:#fff;
     text-decoration:none;
-    font-size:24px;
-    font-weight:600;
-    border:1px solid rgba(255,255,255,.08);
     transition:.3s;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+
+.social-btn:hover{
+    transform:translateY(-4px);
+    background:linear-gradient(180deg,#162236 0%,#101927 100%);
+    border-color:rgba(0,255,195,.2);
+    box-shadow:0 0 20px rgba(0,255,195,.12);
 }
 
 .social-btn i{
     font-size:32px;
-    color:#00f5c4;
+    color:#00ffc3;
+    width:28px;
+    text-align:center;
 }
 
-.social-btn{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.social-btn span{
+    font-size:15px;
+    font-weight:700;
+    color:#fff;
 }
-.social-btn:hover{    
-  transform:translateY(-4px);    
-  border-color:rgba(0,255,195,0.25);    
-  box-shadow:0 0 24px rgba(0,255,195,0.12);    
-  background:linear-gradient(180deg, rgba(0,255,195,0.08), rgba(255,255,255,0.03));    
-}    
-
-.social-btn i {
-  font-size: 1.4rem;
-  color: #00ffc3 !important;
-  width: 28px;
-  text-align: center;
-  filter: drop-shadow(0 0 8px rgba(0, 255, 195, 0.35));
-}
-
-
-.social-btn span{    
-  font-weight:700;    
-  font-size:15px;    
-  letter-spacing:.2px;    
-}    
 
 form{    
   display:grid;    
