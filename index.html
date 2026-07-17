@@ -343,9 +343,9 @@ body{
 }    
 
 .social-grid{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
 }
 
 .social-btn{
@@ -370,8 +370,11 @@ body{
     color:#00f5c4;
 }
 
-.social-btn:hover{
-    transform:translateY(-2px);
+.social-btn{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .social-btn:hover{    
   transform:translateY(-4px);    
