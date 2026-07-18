@@ -176,15 +176,55 @@ body{
   margin-bottom: 5px;   
 }    
 
-.round-profile {    
-  width: 110px;    
-  height: 110px;    
-  border-radius: 50%;    
-  object-fit: cover;    
-  border: 3px solid var(--neon);    
-  box-shadow: 0 0 15px rgba(0, 255, 195, 0.4);    
-  backdrop-filter: blur(8px);    
-}    
+.round-profile{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    padding:4px;
+    background:linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7b00,
+        #ffee00,
+        #00ff00,
+        #00ffff,
+        #0066ff,
+        #8a2be2,
+        #ff00ff,
+        #ff0000
+    );
+    background-size:500% 500%;
+    animation:rgbBorder 8s linear infinite;
+    box-shadow:
+        0 0 12px rgba(0,255,255,.6),
+        0 0 25px rgba(0,255,255,.4);
+}
+
+.round-profile img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    display:block;
+}
+
+@keyframes rgbBorder{
+    0%{
+        background-position:0% 50%;
+    }
+    25%{
+        background-position:50% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    75%{
+        background-position:50% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
 
 .hero-box {    
   position: relative;    
@@ -612,8 +652,10 @@ textarea{
   <div class="container">
     <div class="hero-container">
       <div class="profile-pic-center">
-        <img src="IMG_20260623_034343_99.jpg" alt="Bruno Profile" class="round-profile">
-      </div>
+    <div class="round-profile">
+        <img src="IMG_20260623_034343_99.jpg" alt="Bruno Profile">
+    </div>
+</div>
       <section class="hero-box">
         <div class="hero-title">CYBER SECURITY EXPERT</div>
       </section>
