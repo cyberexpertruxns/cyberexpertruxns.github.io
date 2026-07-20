@@ -169,13 +169,60 @@ body{
   margin-top: 5px;   
 }    
 
-.profile-pic-center{
+.cyber-header{
+    position:relative;
+    width:100%;
+    max-width:700px;
+    height:180px;
+    margin:0 auto 15px;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:25px;
-    width:100%;
-    margin-bottom:8px;
+}
+
+.cyber-header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:2px solid rgba(0,255,195,.25);
+    border-radius:20px;
+    background:rgba(0,10,20,.25);
+    backdrop-filter:blur(8px);
+    box-shadow:0 0 20px rgba(0,255,195,.15);
+}
+
+.cyber-left,
+.cyber-right{
+    position:absolute;
+    width:150px;
+    height:90px;
+    border:2px solid rgba(0,255,195,.2);
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,255,195,.03);
+    z-index:2;
+}
+
+.cyber-left{
+    left:25px;
+}
+
+.cyber-right{
+    right:25px;
+}
+
+.cyber-left i,
+.cyber-right i{
+    font-size:55px;
+    color:#00ffc3;
+    text-shadow:0 0 18px #00ffc3;
+}
+
+.round-profile{
+    position:relative;
+    z-index:3;
 }
 
 .round-profile{
@@ -671,19 +718,19 @@ textarea{
   
   <div class="container">
     <div class="hero-container">
-      <div class="profile-pic-center">
+      <div class="cyber-header">  <div class="cyber-left">  
+    <i class="fa-solid fa-shield-halved"></i>  
+</div>  
 
-    <div class="side-box">
-        <i class="fa-solid fa-shield-halved"></i>
-    </div>
+<div class="round-profile">  
+    <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">  
+</div>  
 
-    <div class="round-profile">
-        <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">
-    </div>
+<div class="cyber-right">  
+    <i class="fa-solid fa-microchip"></i>  
+</div>
 
-    <div class="side-box">
-        <i class="fa-solid fa-microchip"></i>
-    </div>
+</div>
 
 </div>
       <section class="hero-box">
