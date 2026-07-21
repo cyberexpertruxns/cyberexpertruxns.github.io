@@ -15,15 +15,15 @@
       box-sizing:border-box;  
     }    
     :root{  
-      /* NEW HIGH-TECH EMERALD CYBER THEME */
-      --bg-dark: #02090d;  
-      --card-bg: rgba(4, 18, 24, 0.88);  
-      --border-color: rgba(0, 255, 170, 0.22);  
-      --text: #e6fff7;  
-      --text-muted: #7ca398;  
-      --accent-green: #00ffaa;  
-      --accent-cyan: #00e1ff;  
-      --glow-green: rgba(0, 255, 170, 0.3);  
+      /* COLORS FROM IMAGE 3 GRADIENT */
+      --cyan: #00d9ff;  
+      --purple: #9d5cff;  
+      --pink: #ff4fd8;  
+      --bg-dark: #070913;  
+      --card-bg: rgba(14, 18, 36, 0.85);  
+      --border: rgba(0, 217, 255, 0.25);  
+      --text: #f0f4ff;  
+      --text-muted: #8c9bb4;  
     }  
 
     html{ scroll-behavior:smooth; }
@@ -37,7 +37,7 @@
       position:relative;
     }
 
-    /* NEW ANIMATION CANVAS: DIGITAL CIRCUIT & NODE HACKING */
+    /* DIGITAL CIRCUIT ANIMATION CANVAS */
     #cyberCanvas {
       position: fixed;
       inset: 0;
@@ -75,8 +75,7 @@
       padding:3px;
       border-radius:50%;
       overflow:hidden;
-      background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));  
-      box-shadow: 0 0 25px var(--glow-green);
+      background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));  
     }
 
     .round-profile img{
@@ -91,10 +90,9 @@
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       background: var(--card-bg);
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(0, 255, 170, 0.05);
       padding: 20px 24px;
       display: flex;
       justify-content: center;
@@ -121,8 +119,10 @@
       font-size:clamp(1.2rem, 3.2vw, 2.4rem);
       line-height:1.2;
       white-space:nowrap;
-      color: #ffffff;
-      text-shadow: 0 0 15px var(--accent-green);
+      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle{
@@ -135,18 +135,16 @@
       white-space:nowrap;
       display: block;
       text-align: center;
-      color: var(--accent-cyan);
-      text-shadow: 0 0 12px var(--accent-cyan);
+      color: var(--cyan);
     }
 
     .panel{
       position:relative;
       overflow:hidden;
-      border:1px solid var(--border-color);
+      border:1px solid var(--border);
       background:var(--card-bg);
       border-radius:20px;
       padding:22px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
       backdrop-filter:blur(12px);
       margin-top:20px;
     }
@@ -172,9 +170,8 @@
     }
 
     .panel-title i{
-      color:var(--accent-green);
+      color:var(--cyan);
       font-size:1rem;
-      filter:drop-shadow(0 0 8px var(--accent-green));
     }
 
     .social-grid{
@@ -191,23 +188,22 @@
       gap:12px;
       padding:18px;
       border-radius:14px;
-      background: rgba(0, 255, 170, 0.03);
-      border:1px solid rgba(0, 255, 170, 0.15);
+      background: rgba(255, 255, 255, 0.03);
+      border:1px solid rgba(0, 217, 255, 0.18);
       color:#fff;
       text-decoration:none;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
 
     .social-btn:hover{
-      transform:translateY(-3px);
-      background: rgba(0, 255, 170, 0.1);
-      border-color:var(--accent-green);
-      box-shadow:0 0 20px var(--glow-green);
+      transform:translateY(-2px);
+      background: rgba(0, 217, 255, 0.1);
+      border-color:var(--cyan);
     }
 
     .social-btn i{
       font-size:22px;
-      color:var(--accent-green);
+      color:var(--cyan);
       width:22px;
       text-align:center;
     }
@@ -235,7 +231,7 @@
 
     label{
       font-size:13.5px;
-      color:#b3d9ce;
+      color:#c2d2ee;
       font-weight:700;
       letter-spacing:.25px;
     }
@@ -246,8 +242,8 @@
       outline:none;
       border-radius:12px;
       padding:15px 16px;
-      background: rgba(1, 10, 15, 0.7);
-      border:1px solid rgba(0, 255, 170, 0.2);
+      background: rgba(5, 8, 20, 0.8);
+      border:1px solid rgba(0, 217, 255, 0.2);
       color:var(--text);
       font-size:15px;
       font-family: "Fira Code", monospace;
@@ -255,17 +251,16 @@
     }
 
     input::placeholder, textarea::placeholder{
-      color:#426b60;
+      color:#506280;
     }
 
     input:focus, select:focus, textarea:focus{
-      border-color:var(--accent-green);
-      box-shadow:0 0 15px rgba(0, 255, 170, 0.25);
-      background: rgba(1, 10, 15, 0.9);
+      border-color:var(--cyan);
+      background: rgba(5, 8, 20, 0.95);
     }
 
     select option{
-      background:#02090d;
+      background:#070913;
       color:#ffffff;
     }
 
@@ -285,16 +280,14 @@
       font-size:16px;
       font-weight:800;
       cursor:pointer;
-      color:#02090d;
-      background: var(--accent-green);
+      color:#ffffff;
+      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
       transition:0.3s ease;
-      box-shadow: 0 0 20px var(--glow-green);
     }
 
     .submit-btn:hover{
+      opacity: 0.9;
       transform:translateY(-2px);
-      background: var(--accent-cyan);
-      box-shadow: 0 0 30px rgba(0, 225, 255, 0.5);
     }
 
     .submit-btn i{ margin-right:8px; font-size:18px; }
@@ -375,7 +368,7 @@
   </style>  
 </head>  
 <body>  
-  <!-- NEW ANIMATION CANVAS -->
+  <!-- DIGITAL NETWORK & CIRCUIT ANIMATION -->
   <canvas id="cyberCanvas"></canvas>    
 
   <div class="container">  
@@ -509,7 +502,7 @@
     </section>
   </div>    
 
-  <!-- NEW DIGITAL NETWORK & CIRCUIT ANIMATION SCRIPT -->
+  <!-- ANIMATION SCRIPT WITH UPDATED COLOR PALETTE -->
   <script>  
     const canvas = document.getElementById("cyberCanvas");  
     const ctx = canvas.getContext("2d");  
@@ -521,24 +514,24 @@
     resizeCanvas();  
     window.addEventListener("resize", resizeCanvas);  
       
-    // Create particles (Nodes)
     const nodes = [];
-    const nodeCount = 60;
+    const nodeCount = 55;
+    const colors = ["#00d9ff", "#9d5cff", "#ff4fd8"];
 
     for(let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 1.2,
-        vy: (Math.random() - 0.5) * 1.2,
-        radius: Math.random() * 2 + 1
+        vx: (Math.random() - 0.5) * 1.1,
+        vy: (Math.random() - 0.5) * 1.1,
+        radius: Math.random() * 2 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)]
       });
     }
 
     function drawCircuit() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw Nodes and Lines
       for(let i = 0; i < nodes.length; i++) {
         let node = nodes[i];
         node.x += node.vx;
@@ -549,10 +542,9 @@
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 255, 170, 0.7)";
+        ctx.fillStyle = node.color;
         ctx.fill();
 
-        // Connect nearby nodes
         for(let j = i + 1; j < nodes.length; j++) {
           let node2 = nodes[j];
           let dist = Math.hypot(node.x - node2.x, node.y - node2.y);
@@ -561,7 +553,7 @@
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(node2.x, node2.y);
-            ctx.strokeStyle = `rgba(0, 255, 170, ${1 - dist / 120})`;
+            ctx.strokeStyle = `rgba(0, 217, 255, ${0.8 - dist / 120})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
