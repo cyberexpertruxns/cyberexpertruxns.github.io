@@ -3,387 +3,422 @@
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Cyber Security Expert - Bruno</title>  
+  <title>CYBER COMMAND | BRUNO</title>  
+  
+  <!-- Modern Tech Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">  
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>  
-  
+
   <style>  
+    :root {  
+      --neon-blue: #00f3ff;  
+      --neon-purple: #b026ff;  
+      --neon-pink: #ff0055;  
+      --bg-black: #02040a;  
+      --panel-bg: rgba(6, 11, 25, 0.75);  
+      --panel-border: rgba(0, 243, 255, 0.15);  
+      --text-main: #e2e8f0;  
+      --text-muted: #64748b;  
+    }  
+
     * {  
       margin: 0;  
       padding: 0;  
       box-sizing: border-box;  
     }    
-    :root {  
-      --cyan: #00f0ff;  
-      --purple: #7000ff;  
-      --pink: #ff007b;  
-      --bg-dark: #030712;  
-      --card-bg: rgba(15, 23, 42, 0.7);  
-      --card-border: rgba(255, 255, 255, 0.08);  
-      --gradient-text: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));  
-      --gradient-btn: linear-gradient(90deg, #00f0ff, #7000ff, #ff007b);  
-      --text: #f8fafc;  
-      --text-muted: #94a3b8;  
-    }  
 
     html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text-main);
+      background: var(--bg-black);
       overflow-x: hidden;
-      background: var(--bg-dark);
       position: relative;
     }
 
-    /* INTERACTIVE CANVAS ANIMATION */
-    #bgCanvas {
+    /* CYBER MATRIX CANVAS */
+    #matrixCanvas {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: auto;
+      pointer-events: none;
     }
 
-    .container {
-      width: min(900px, 92%);
-      margin: 0 auto;
+    .app-wrapper {
       position: relative;
       z-index: 2;
-      padding: 20px 0 50px;
-    }
-
-    /* PROFILE & HERO SECTION */
-    .hero-container {
+      width: min(850px, 92%);
+      margin: 30px auto;
       display: flex;
       flex-direction: column;
+      gap: 24px;
+    }
+
+    /* SYSTEM STATUS BAR */
+    .status-bar {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-top: 10px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.05);
     }
 
-    .profile-wrap {
-      position: relative;
-      padding: 4px;
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--neon-blue);
       border-radius: 50%;
-      background: var(--gradient-text);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-      animation: pulseGlow 4s infinite alternate;
+      box-shadow: 0 0 10px var(--neon-blue);
+      animation: blink 1.5s infinite;
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
-      100% { box-shadow: 0 0 40px rgba(255, 0, 123, 0.4); }
+    @keyframes blink {
+      50% { opacity: 0.2; }
     }
 
-    .round-profile {
+    /* PROFILE COMMAND CARD */
+    .hero-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+    }
+
+    .avatar-wrapper {
+      position: relative;
       width: 120px;
       height: 120px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #030712;
+      margin: 0 auto 16px;
     }
 
-    .round-profile img {
+    .avatar-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      border-radius: 50%;
+      border: 2px solid var(--neon-blue);
+      padding: 4px;
+      background: rgba(0,0,0,0.5);
     }
 
-    .hero-box {
-      width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(16px);
-      border-radius: 16px;
-      padding: 16px 20px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    .avatar-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1px dashed var(--neon-purple);
+      animation: rotateRing 12s linear infinite;
     }
 
-    .hero-box.small-box {
-      width: min(400px, 100%);
-      padding: 10px 20px;
+    @keyframes rotateRing {
+      100% { transform: rotate(360deg); }
     }
 
-    .hero-title {
-      font-family: "Orbitron", sans-serif;
-      font-weight: 900;
+    .main-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #fff 0%, var(--neon-blue) 50%, var(--neon-purple) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       text-transform: uppercase;
+    }
+
+    .sub-title {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--neon-pink);
+      font-size: 1rem;
+      margin-top: 6px;
       letter-spacing: 2px;
-      font-size: clamp(1.1rem, 3.5vw, 2.1rem);
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
     }
 
-    .hero-subtitle {
-      font-family: "Orbitron", sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: clamp(0.8rem, 2.5vw, 1.1rem);
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* PANELS & CARDS */
-    .panel {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+    /* CYBER PANELS */
+    .cyber-panel {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
       backdrop-filter: blur(16px);
       border-radius: 20px;
       padding: 24px;
-      margin-top: 22px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
     }
 
-    .panel-title {
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
+    .panel-header {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .panel-title i {
-      color: var(--cyan);
-      font-size: 1.1rem;
+    .panel-header i {
+      color: var(--neon-blue);
+      font-size: 1.2rem;
     }
 
-    /* SOCIAL BUTTONS */
-    .social-grid {
+    /* MODERN SOCIAL CARDS GRID */
+    .social-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
-    .social-btn {
+    .card-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 16px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text);
+      gap: 14px;
       text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-item i {
+      font-size: 1.5rem;
+      color: var(--neon-blue);
+      transition: transform 0.3s ease;
+    }
+
+    .card-item .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-item .info .label {
       font-weight: 700;
-      font-size: 15px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      font-size: 0.95rem;
     }
 
-    .social-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-btn);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 0;
+    .card-item .info .sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'Share Tech Mono', monospace;
     }
 
-    .social-btn > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .social-btn:hover {
+    .card-item:hover {
+      background: rgba(0, 243, 255, 0.05);
+      border-color: var(--neon-blue);
       transform: translateY(-3px);
-      border-color: transparent;
-      box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 243, 255, 0.1);
     }
 
-    .social-btn:hover::before {
-      opacity: 0.15;
+    .card-item:hover i {
+      transform: scale(1.15);
+      color: var(--neon-pink);
     }
 
-    .social-btn i {
-      font-size: 20px;
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* FORM STYLES */
-    form {
-      display: grid;
-      grid-template-columns: 1fr;
+    /* FORM STYLING */
+    .cyber-form {
+      display: flex;
+      flex-direction: column;
       gap: 16px;
     }
 
-    .input-wrap {
+    .form-group {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
-    label {
-      font-size: 13.5px;
-      font-weight: 700;
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: 0.5px;
+    .form-group label {
+      font-size: 0.85rem;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--neon-blue);
+      text-transform: uppercase;
     }
 
-    input, select, textarea {
+    .form-control {
       width: 100%;
-      outline: none;
-      border-radius: 12px;
-      padding: 14px 16px;
-      background: rgba(3, 7, 18, 0.7);
+      background: rgba(2, 4, 10, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text);
-      font-size: 14.5px;
-      font-family: "Fira Code", monospace;
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
       transition: all 0.3s ease;
     }
 
-    input::placeholder, textarea::placeholder {
-      color: #475569;
+    .form-control:focus {
+      border-color: var(--neon-purple);
+      box-shadow: 0 0 15px rgba(176, 38, 255, 0.25);
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--cyan);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
-      background: rgba(3, 7, 18, 0.9);
+    select.form-control option {
+      background: #060b19;
+      color: #fff;
     }
 
-    select option {
-      background: #030712;
-      color: #ffffff;
-    }
-
-    textarea {
-      min-height: 150px;
+    textarea.form-control {
+      min-height: 120px;
       resize: vertical;
     }
 
-    .submit-btn {
+    .action-btn {
+      margin-top: 10px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
       border: none;
       outline: none;
-      padding: 16px;
       border-radius: 12px;
-      font-size: 16px;
+      padding: 16px;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
       font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 1px;
       cursor: pointer;
-      color: #ffffff;
-      background: var(--gradient-btn);
-      background-size: 200% auto;
-      transition: all 0.4s ease;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.3);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0, 243, 255, 0.2);
     }
 
-    .submit-btn:hover {
-      background-position: right center;
+    .action-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255, 0, 123, 0.4);
+      box-shadow: 0 10px 25px rgba(176, 38, 255, 0.4);
+      background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
     }
 
-    /* RESPONSIVE DESIGN */
     @media (max-width: 600px) {
-      .social-grid {
+      .social-cards {
         grid-template-columns: 1fr;
       }
-
-      .panel {
-        padding: 18px;
+      .app-wrapper {
+        margin: 15px auto;
       }
-
-      .round-profile {
-        width: 100px;
-        height: 100px;
+      .hero-card {
+        padding: 20px;
       }
     }
   </style>  
 </head>  
 <body>  
 
-  <!-- INTERACTIVE CANVAS BACKGROUND -->
-  <canvas id="bgCanvas"></canvas>    
+  <!-- CYBER MATRIX ANIMATED CANVAS -->
+  <canvas id="matrixCanvas"></canvas>  
 
-  <div class="container">  
-    <div class="hero-container">  
-      <div class="profile-wrap">  
-        <div class="round-profile">  
-          <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">  
-        </div>  
+  <div class="app-wrapper">  
+
+    <!-- TOP LIVE TERMINAL STATUS -->
+    <div class="status-bar">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span>SYSTEM STATUS: ONLINE</span>
+      </div>
+      <div>SECURE 256-BIT</div>
+    </div>
+
+    <!-- MAIN PROFILE COMMAND CENTER -->
+    <div class="hero-card">  
+      <div class="avatar-wrapper">  
+        <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno">  
       </div>  
-      
-      <div class="hero-box">  
-        <div class="hero-title" id="typewriterText">CYBER SECURITY EXPERT</div>  
+      <h1 class="main-title">CYBER SECURITY EXPERT</h1>  
+      <div class="sub-title">/// YOUR XAMAI B4UNO ///</div>  
+    </div>  
+
+    <!-- SOCIAL MEDIA DIRECTORY -->
+    <div class="cyber-panel">  
+      <div class="panel-header">  
+        <i class="fa-solid fa-network-wired"></i> Official Channels  
       </div>  
-      
-      <div class="hero-box small-box">  
-        <div class="hero-subtitle">Your Xamai B4uno</div>  
+
+      <div class="social-cards">  
+        <a href="https://www.facebook.com/share/1HLVnAtnoT/" target="_blank" class="card-item">  
+          <i class="fa-brands fa-facebook-f"></i>  
+          <div class="info">  
+            <span class="label">Facebook</span>  
+            <span class="sub">Connect Profile</span>  
+          </div>  
+        </a>  
+
+        <a href="https://www.tiktok.com/@ruxax" target="_blank" class="card-item">  
+          <i class="fa-brands fa-tiktok"></i>  
+          <div class="info">  
+            <span class="label">TikTok</span>  
+            <span class="sub">Watch Videos</span>  
+          </div>  
+        </a>  
+
+        <a href="https://www.instagram.com/mahin__bbz?igsh=MTA4eTdyN2ZycHAyYw==" target="_blank" class="card-item">  
+          <i class="fa-brands fa-instagram"></i>  
+          <div class="info">  
+            <span class="label">Instagram</span>  
+            <span class="sub">Follow Updates</span>  
+          </div>  
+        </a>  
+
+        <a href="javascript:void(0)" class="card-item">  
+          <i class="fa-solid fa-user-shield"></i>  
+          <div class="info">  
+            <span class="label">My Info</span>  
+            <span class="sub">Verified Agent</span>  
+          </div>  
+        </a>  
       </div>  
     </div>  
 
-    <!-- INFORMATION PANEL -->
-    <section class="panel">  
-      <h2 class="panel-title">  
-        <i class="fa-solid fa-shield-halved"></i> My Information  
-      </h2>  
-
-      <div class="social-grid">
-        <a class="social-btn" href="https://www.facebook.com/share/1HLVnAtnoT/" target="_blank">  
-          <i class="fa-brands fa-facebook-f"></i> <span>Facebook</span>  
-        </a>    
-        <a class="social-btn" href="https://www.tiktok.com/@ruxax" target="_blank">  
-          <i class="fa-brands fa-tiktok"></i> <span>TikTok</span>  
-        </a>  
-        <a class="social-btn" href="https://www.instagram.com/mahin__bbz?igsh=MTA4eTdyN2ZycHAyYw==" target="_blank">  
-          <i class="fa-brands fa-instagram"></i> <span>Instagram</span>  
-        </a>    
-        <a class="social-btn" href="javascript:void(0)">  
-          <i class="fa-solid fa-user-gear"></i> <span>My Info</span>  
-        </a>  
+    <!-- EMERGENCY SUPPORT FORM -->
+    <div class="cyber-panel">  
+      <div class="panel-header">  
+        <i class="fa-solid fa-terminal"></i> Report An Issue / Request Help  
       </div>  
-    </section>  
 
-    <!-- PROBLEM REPORT PANEL -->
-    <section class="panel">  
-      <h2 class="panel-title">  
-        <i class="fa-solid fa-bug"></i> Tell us about your problem  
-      </h2>  
-
-      <form id="supportForm">  
-        <div class="input-wrap">  
-          <label for="name">Your Name (Optional)</label>  
-          <input type="text" id="name" placeholder="Enter your name..." />  
+      <form id="cyberForm" class="cyber-form">  
+        <div class="form-group">  
+          <label for="usr_name">> User Identifier (Optional)</label>  
+          <input type="text" id="usr_name" class="form-control" placeholder="Enter name or alias..." />  
         </div>  
 
-        <div class="input-wrap">  
-          <label for="service">Select Problem / Service</label>  
-          <select id="service" required>  
-            <option value="">-- Select a service --</option>  
+        <div class="form-group">  
+          <label for="usr_service">> Select Category / Platform</label>  
+          <select id="usr_service" class="form-control" required>  
+            <option value="">-- Choose Required Service --</option>  
             <option>TikTok Account Recovery</option>  
             <option>TikTok Suspended Account Appeal Help</option>  
             <option>TikTok Disabled Account Recovery</option>  
@@ -437,152 +472,69 @@
           </select>  
         </div>  
 
-        <div class="input-wrap">  
-          <label for="problem">Describe Your Problem</label>  
-          <textarea id="problem" placeholder="Describe the issue in detail..." required></textarea>  
+        <div class="form-group">  
+          <label for="usr_problem">> Incident Description</label>  
+          <textarea id="usr_problem" class="form-control" placeholder="Describe your technical issue in detail..." required></textarea>  
         </div>  
 
-        <button type="submit" class="submit-btn">  
-          <i class="fa-brands fa-whatsapp"></i> Submit On WhatsApp  
+        <button type="submit" class="action-btn">  
+          <i class="fa-brands fa-whatsapp"></i> Transmit To WhatsApp  
         </button>  
       </form>  
-    </section>  
-  </div>    
+    </div>  
 
-  <!-- JAVASCRIPT ANIMATIONS & LOGIC -->
+  </div>  
+
   <script>  
-    /* --- 1. INTERACTIVE PARTICLE CONSTELLATION CANVAS --- */
-    const canvas = document.getElementById("bgCanvas");  
-    const ctx = canvas.getContext("2d");  
-      
-    function resizeCanvas() {  
-      canvas.width = window.innerWidth;  
-      canvas.height = window.innerHeight;  
-    }  
-    resizeCanvas();  
-    window.addEventListener("resize", resizeCanvas);  
-      
-    const particles = [];
-    const particleCount = 65;
-    const colors = ["#00f0ff", "#7000ff", "#ff007b"];
+    /* CYBER MATRIX CANVAS ANIMATION */
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
 
-    let mouse = { x: null, y: null, radius: 150 };
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    window.addEventListener("mousemove", (e) => {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    });
+    const chars = '0110010101010101010100101010101';
+    const fontSize = 14;
+    const columns = Math.floor(window.innerWidth / fontSize);
+    const drops = Array(columns).fill(1);
 
-    window.addEventListener("mouseleave", () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(2, 4, 10, 0.15)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 1.2;
-        this.vy = (Math.random() - 0.5) * 1.2;
-        this.size = Math.random() * 2 + 1;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
+      ctx.fillStyle = 'rgba(0, 243, 255, 0.35)';
+      ctx.font = fontSize + 'px monospace';
 
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        // Interactive mouse connection
-        if (mouse.x && mouse.y) {
-          let dx = mouse.x - this.x;
-          let dy = mouse.y - this.y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < mouse.radius) {
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = this.color;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
         }
+        drops[i]++;
       }
     }
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    setInterval(drawMatrix, 40);
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          let dx = particles[i].x - particles[j].x;
-          let dy = particles[i].y - particles[j].y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 110) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(112, 0, 255, ${1 - dist / 110})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    /* --- 2. WHATSAPP FORM SUBMISSION --- */
-    const form = document.getElementById("supportForm");  
-    const whatsappNumber = "8801347344027";  
+    /* FORM SUBMISSION */
+    document.getElementById('cyberForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-    form.addEventListener("submit", function(e) {  
-      e.preventDefault();  
+      const name = document.getElementById('usr_name').value.trim() || 'Anonymous';
+      const service = document.getElementById('usr_service').value;
+      const problem = document.getElementById('usr_problem').value.trim();
       
-      const name = document.getElementById("name").value.trim();  
-      const service = document.getElementById("service").value;  
-      const problem = document.getElementById("problem").value.trim();  
+      const msg = `[CYBER DISPATCH]\nUser: ${name}\nCategory: ${service}\n\nDetails:\n${problem}`;
       
-      if (!service || !problem) {  
-        alert("Please select a service and describe your problem.");  
-        return;  
-      }  
-      
-      const finalName = name ? name : "Not Provided";  
-      
-      const message =  
-`Hello Bruno,  
-      
-New Support Request  
-      
-Name: ${finalName}  
-Service: ${service}  
-      
-Problem Description:  
-${problem}`;  
-      
-      const encodedMessage = encodeURIComponent(message);  
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;  
-      
-      window.open(whatsappURL, "_blank");  
-    });  
+      const targetPhone = "8801347344027";
+      window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
   </script>  
 </body>  
 </html>
